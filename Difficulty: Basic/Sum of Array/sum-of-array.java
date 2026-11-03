@@ -1,9 +1,14 @@
 class Solution {
-	public int arraySum(int arr[]) {
-		int sum = 0;
-		for (int i = 0; i<arr.length; i++) {
-			sum = sum + arr[i];
+	
+	private int helper(int nums[], int idx) {
+		if (idx == nums.length) {
+			return 0;
 		}
-		return sum;
+		return nums[idx]+helper(nums, idx + 1);
+	}
+	
+	public int arraySum(int arr[]) {
+		return helper(arr,0);
+		
 	}
 }
